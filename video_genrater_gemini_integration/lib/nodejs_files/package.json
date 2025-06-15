@@ -1,0 +1,27 @@
+{
+  "name": "video-generator-gemini",
+  "version": "1.0.0",
+  "description": "AI Video Generator with Gemini Integration",
+  "main": "lib/server_file.js",
+  "type": "module",
+  "scripts": {
+    "start": "node lib/server_file.js",
+    "dev": "node --watch lib/server_file.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "multer": "^2.0.1",
+    "node-fetch": "^3.3.2"
+  },
+  "keywords": [
+    "ai",
+    "video",
+    "generator",
+    "gemini",
+    "flutter"
+  ],
+  "author": "zimal",
+  "license": "MIT"
+}
