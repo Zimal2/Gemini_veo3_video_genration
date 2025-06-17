@@ -4,6 +4,12 @@ import 'package:get/get.dart';
 import 'package:video_genrater_gemini_integration/controllers/chatScreenCont.dart';
 import 'package:video_player/video_player.dart';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:video_genrater_gemini_integration/controllers/chatScreenCont.dart';
+import 'package:video_player/video_player.dart';
+
 class ImageSection extends StatelessWidget {
   final ChatScreenController controller;
 
@@ -27,7 +33,7 @@ class ImagePromptField extends StatelessWidget {
   final ChatScreenController controller;
 
   const ImagePromptField({Key? key, required this.controller})
-    : super(key: key);
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,98 +58,27 @@ class ImagePromptField extends StatelessWidget {
             maxLines: 2,
           ),
         );
-      } else if (controller.selectedMode.value == 2) {
-        return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-          child: Column(
-            children: [
-              Obx(() {
-                if (controller.hasSelectedImage) {
-                  return Container(
-                    height: 200,
-                    width: double.infinity,
-                    margin: const EdgeInsets.only(bottom: 16),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          blurRadius: 10,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child:
-                          kIsWeb && controller.selectedImageBytes.value != null
-                              ? Image.memory(
-                                controller.selectedImageBytes.value!,
-                                fit: BoxFit.cover,
-                              )
-                              : !kIsWeb &&
-                                  controller.selectedImage.value != null
-                              ? Image.file(
-                                controller.selectedImage.value!,
-                                fit: BoxFit.cover,
-                              )
-                              : Container(
-                                color: Colors.grey[300],
-                                child: Icon(
-                                  Icons.image,
-                                  size: 50,
-                                  color: Colors.grey[600],
-                                ),
-                              ),
-                    ),
-                  );
-                }
-                return const SizedBox();
-              }),
-              ElevatedButton.icon(
-                onPressed: controller.pickImage,
-                icon: const Icon(Icons.add_photo_alternate),
-                label: Obx(() => Text(controller.selectedImageButtonText)),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF6366F1),
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 16,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
       }
       return const SizedBox();
     });
   }
 }
 
-// Image Upload Section Widget
+// Image Upload Section Widget - Improved for better scrolling
 class ImageUploadSection extends StatelessWidget {
   final ChatScreenController controller;
 
   const ImageUploadSection({Key? key, required this.controller})
-    : super(key: key);
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Obx(() {
-            if (controller.hasSelectedImage) {
-              return SelectedImagePreview(controller: controller);
-            }
-            return const SizedBox();
-          }),
+          // Upload button at the top
           ElevatedButton.icon(
             onPressed: controller.pickImage,
             icon: const Icon(Icons.add_photo_alternate),
@@ -157,18 +92,95 @@ class ImageUploadSection extends StatelessWidget {
               ),
             ),
           ),
+          
+          const SizedBox(height: 16),
+          
+          // Image preview with constrained height
+          Obx(() {
+            if (controller.hasSelectedImage) {
+              return Container(
+                constraints: const BoxConstraints(
+                  maxHeight: 300, // Limit height to prevent overflow
+                  minHeight: 150,
+                ),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Stack(
+                    children: [
+                      // Image display
+                      kIsWeb && controller.selectedImageBytes.value != null
+                          ? Image.memory(
+                              controller.selectedImageBytes.value!,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: double.infinity,
+                            )
+                          : !kIsWeb && controller.selectedImage.value != null
+                              ? Image.file(
+                                  controller.selectedImage.value!,
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                )
+                              : Container(
+                                  color: Colors.grey[300],
+                                  child: Icon(
+                                    Icons.image,
+                                    size: 50,
+                                    color: Colors.grey[600],
+                                  ),
+                                ),
+                      
+                      // Overlay with change button
+                      Positioned(
+                        top: 12,
+                        right: 12,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.6),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.edit,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                            onPressed: controller.pickImage,
+                            tooltip: 'Change Image',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }
+            return const SizedBox();
+          }),
         ],
       ),
     );
   }
 }
 
-// Selected Image Preview Widget
+// Selected Image Preview Widget - Standalone if needed
 class SelectedImagePreview extends StatelessWidget {
   final ChatScreenController controller;
 
   const SelectedImagePreview({Key? key, required this.controller})
-    : super(key: key);
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -188,23 +200,21 @@ class SelectedImagePreview extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child:
-            kIsWeb && controller.selectedImageBytes.value != null
-                ? Image.memory(
-                  controller.selectedImageBytes.value!,
-                  fit: BoxFit.cover,
-                )
-                : !kIsWeb && controller.selectedImage.value != null
+        child: kIsWeb && controller.selectedImageBytes.value != null
+            ? Image.memory(
+                controller.selectedImageBytes.value!,
+                fit: BoxFit.cover,
+              )
+            : !kIsWeb && controller.selectedImage.value != null
                 ? Image.file(controller.selectedImage.value!, fit: BoxFit.cover)
                 : Container(
-                  color: Colors.grey[300],
-                  child: Icon(Icons.image, size: 50, color: Colors.grey[600]),
-                ),
+                    color: Colors.grey[300],
+                    child: Icon(Icons.image, size: 50, color: Colors.grey[600]),
+                  ),
       ),
     );
   }
 }
-
 // Video Player Widget with better error handling and state management
 class CustomVideoPlayer extends StatelessWidget {
   final ChatScreenController controller;

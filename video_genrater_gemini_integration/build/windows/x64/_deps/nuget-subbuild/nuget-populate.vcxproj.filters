@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\d201158e607ecab37774a9ac04e18c68\nuget-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\d201158e607ecab37774a9ac04e18c68\nuget-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\d201158e607ecab37774a9ac04e18c68\nuget-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\d201158e607ecab37774a9ac04e18c68\nuget-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\d201158e607ecab37774a9ac04e18c68\nuget-populate-copyfile.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\d201158e607ecab37774a9ac04e18c68\nuget-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\d201158e607ecab37774a9ac04e18c68\nuget-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\d201158e607ecab37774a9ac04e18c68\nuget-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\d201158e607ecab37774a9ac04e18c68\nuget-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\362422da409bfcf118d21602794ecf12\nuget-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\6044c4dd6e7b0b2b234333d8679b0f07\nuget-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\_deps\nuget-subbuild\CMakeFiles\nuget-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{60498F01-601D-3166-8502-79FE1D2DD2D2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

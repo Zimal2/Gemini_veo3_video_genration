@@ -7,7 +7,6 @@ import 'package:video_genrater_gemini_integration/utils/customModuleSel.dart';
 import 'package:video_genrater_gemini_integration/utils/imageWidgets.dart';
 import 'package:video_genrater_gemini_integration/utils/videoWidget.dart';
 import 'package:video_player/video_player.dart';
-
 class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,30 +17,34 @@ class ChatScreen extends StatelessWidget {
       appBar: CustomAppBar(),
       body: Column(
         children: [
-          ModeSelector(controller: controller),
-          ImagePromptField(controller: controller),
+          ModeSelector(controller: controller),          
           Expanded(
             child: SingleChildScrollView(
+              controller: controller.scrollController,
+              physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
                 children: [
+                  ImageSection(controller: controller),
+                  
                   Obx(() {
                     if (controller.isLoading.value) {
                       return LoadingState(controller: controller);
                     }
                     return const SizedBox();
                   }),
+                  
                   Obx(() {
-                    if (controller.videoUrl?.value != null &&
-                        controller.videoUrl!.value.isNotEmpty) {
+                    if (controller.videoUrl.value.isNotEmpty) {
                       return _buildVideoPlayer(controller, context);
                     }
                     return const SizedBox();
                   }),
+                                    const SizedBox(height: 100),
                 ],
               ),
             ),
           ),
-          BottomInputSection(controller: controller),
+                    BottomInputSection(controller: controller),
         ],
       ),
     );
@@ -139,11 +142,10 @@ class ChatScreen extends StatelessWidget {
                         color: Colors.white,
                         size: 28,
                       ),
-                      onPressed:
-                          () => controller.downloadVideo(
-                            controller.videoUrl.value,
-                            context: context,
-                          ),
+                      onPressed: () => controller.downloadVideo(
+                        controller.videoUrl.value,
+                        context: context,
+                      ),
                     ),
                   ),
                 ],

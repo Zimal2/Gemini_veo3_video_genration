@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_genrater_gemini_integration/controllers/chatScreenCont.dart';
 import 'package:video_genrater_gemini_integration/utils/modeOption.dart';
+
 class ModeSelector extends StatelessWidget {
   final ChatScreenController controller;
 
-  const ModeSelector({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
+  const ModeSelector({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(20),
-      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.only(left: 10, right: 10),
+    //  padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -54,8 +52,8 @@ class ModeSelector extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 16),
-        Row(
+          const SizedBox(height: 10),
+          Row(
             children: [
               Expanded(
                 child: ModeOption(

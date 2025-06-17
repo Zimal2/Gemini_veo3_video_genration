@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\windows\flutter\ephemeral\cpp_client_wrapper\flutter_engine.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\windows\flutter\ephemeral\cpp_client_wrapper\flutter_view_controller.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{95A63DBA-1C76-3A60-BDDE-F435B19E4E66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{AD08E4FA-5BB7-3779-99F4-88931B191AAB}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

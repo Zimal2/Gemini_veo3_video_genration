@@ -16,6 +16,7 @@ class ChatScreenController extends GetxController
     with GetTickerProviderStateMixin {
   final TextEditingController promptController = TextEditingController();
   final TextEditingController imagePromptController = TextEditingController();
+  final ScrollController scrollController = ScrollController();
 
   final ImagePicker _picker = ImagePicker();
 
@@ -46,6 +47,7 @@ class ChatScreenController extends GetxController
     imagePromptController.dispose();
     videoController.value?.dispose();
     pulseController.dispose();
+      scrollController.dispose();
     super.onClose();
   }
 
@@ -146,7 +148,6 @@ class ChatScreenController extends GetxController
       );
     }
   }
-
   Future<void> pickImage() async {
     try {
       final XFile? image = await _picker.pickImage(
@@ -165,12 +166,19 @@ class ChatScreenController extends GetxController
           selectedImage.value = File(image.path);
           selectedImageBytes.value = null;
         }
+        
+        // Auto-scroll to show the uploaded image in mode 2
+        if (selectedMode.value == 2) {
+          Future.delayed(const Duration(milliseconds: 300), () {
+            _scrollToContent();
+          });
+        }
       }
     } catch (e) {
       showSnackBar("Failed to pick image: $e", isError: true);
     }
   }
-
+  
   void showSnackBar(String message, {bool isError = false}) {
     Get.snackbar(
       isError ? 'Error' : 'Success',
@@ -182,8 +190,7 @@ class ChatScreenController extends GetxController
       margin: const EdgeInsets.all(16),
     );
   }
-
-  Future<void> generateVideo() async {
+ Future<void> generateVideo() async {
     final prompt = promptController.text.trim();
     if (prompt.isEmpty) {
       showSnackBar("Please enter a video prompt", isError: true);
@@ -206,6 +213,9 @@ class ChatScreenController extends GetxController
     isVideoInitializing.value = false;
     videoInitialized.value = false;
     videoUrl.value = '';
+
+    // Auto-scroll to show loading state
+    _scrollToContent();
 
     if (videoController.value != null) {
       await videoController.value!.dispose();
@@ -258,6 +268,9 @@ class ChatScreenController extends GetxController
 
           // Initialize video with better error handling
           await initializeVideo(newVideoUrl);
+          
+          // Auto-scroll to show the generated video
+          _scrollToContent();
         } else {
           throw Exception('No video URL received from server');
         }
@@ -277,7 +290,28 @@ class ChatScreenController extends GetxController
       isVideoInitializing.value = false;
     }
   }
-
+    void _scrollToContent() {
+    Future.delayed(const Duration(milliseconds: 300), () {
+      if (scrollController.hasClients) {
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent * 0.5, // Scroll to middle-bottom
+          duration: const Duration(milliseconds: 800),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  }
+  
+  // Method to scroll to video when it's ready
+  void scrollToVideo() {
+    if (scrollController.hasClients) {
+      scrollController.animateTo(
+        scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 800),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
   Future<void> initializeVideo(String url) async {
     try {
       isVideoInitializing.value = true;

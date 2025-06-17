@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\PMLS\Documents\flutter projects\Gemini_veo3_video_genration\video_genrater_gemini_integration\build\windows\x64\CMakeFiles\68b9d45dd1610deadb0b4df854a92696\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{95A63DBA-1C76-3A60-BDDE-F435B19E4E66}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

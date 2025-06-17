@@ -1,0 +1,3 @@
+C:/Users/PMLS/Documents/flutter projects/Gemini_veo3_video_genration/video_genrater_gemini_integration/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/nuget-populate.dir
+C:/Users/PMLS/Documents/flutter projects/Gemini_veo3_video_genration/video_genrater_gemini_integration/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/ALL_BUILD.dir
+C:/Users/PMLS/Documents/flutter projects/Gemini_veo3_video_genration/video_genrater_gemini_integration/build/windows/x64/_deps/nuget-subbuild/CMakeFiles/ZERO_CHECK.dir
